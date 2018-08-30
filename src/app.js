@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GameBoard from './gameboard'
+import GameBoard from './gameboard';
 
 export default class App extends Component{
 
