@@ -1,0 +1,73 @@
+[
+  {
+    "id": 0,
+    "shortName": "Captain Reynolds",
+    "name": "Captain Malcolm \"Mal\" Reynolds",
+    "description": "the owner and captain of Serenity and former Independent sergeant in the pivotal Battle of Serenity Valley. Malcolm grew up on a ranch, and was raised by his mother and the ranch hands. In the Unification War, he fought as a platoon sergeant in the 57th Overlanders of the Independent Army, the \"Browncoats\". He is cunning, a capable leader and a skilled fighter. Mal's main motivation is his will for independence. While he is not above petty theft, smuggling or even killing to maintain his free lifestyle, he is generally honest in his dealings with others, fiercely loyal to his crew and closely follows a personal moral code. He is openly antagonistic toward religion as a result of his war experience.",
+    "image": "MalReynoldsFirefly.JPG",
+    "exampleValue": 4
+  },
+  {
+    "id": 1,
+    "shortName": "Zoe",
+    "name": "Zoe Washburne",
+    "description": "Secon in command",
+    "image": "Zoe.jpg",
+    "exampleValue": true
+  },
+  {
+    "id": 2,
+    "shortName": "Wash",
+    "name": "Hoban \"Wash\" Washburne",
+    "description": "Pilot",
+    "image": "Wash.jpg",
+    "exampleValue": "Foo"
+  },
+  {
+    "id": 3,
+    "shortName": "Inara",
+    "name": "Inara Serra",
+    "description": "Companion",
+    "image": "Inara02.jpg",
+    "exampleValue": [1, 2, 3]
+  },
+  {
+    "id": 4,
+    "shortName": "Jayne",
+    "name": "Jayne Cobb",
+    "description": "Hired muscle",
+    "image": "Jayne.jpg",
+    "exampleValue": {"name": "Luke", "profession": "Jedi"}
+  },
+  {
+    "id": 5,
+    "shortName": "Kaylee",
+    "name": "Kaylee Frye",
+    "description": "The mechanic",
+    "image": "Kaylee.jpg"
+  },
+  {
+    "id": 6,
+    "shortName": "Simon",
+    "name": "Dr. Simon Tam",
+    "description": "The Doc",
+    "image": "Simon2.jpg",
+    "exampleValue": null
+  },
+  {
+    "id": 7,
+    "shortName": "River",
+    "name": "River Tam",
+    "description": "Girl",
+    "image": "River.jpg",
+    "exampleValue": null
+  },
+  {
+    "id": 8,
+    "shortName": "Shepherd Book",
+    "name": "Shepherd Book",
+    "description": "Shepherd",
+    "image": "Book.jpg",
+    "exampleValue": null
+  }
+]

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GameBoard from './gameboard';
+import items from './characters.json';
 
 export default class App extends Component{
 
@@ -7,7 +8,7 @@ export default class App extends Component{
         return (
             <div>
                 <h1>Find pairs</h1>
-                <GameBoard />
+                <GameBoard items={items} />
             </div>
             )
     }
