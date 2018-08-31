@@ -14,9 +14,12 @@ export default class GameBoard extends Component{
 
         this.selectCard = this.selectCard.bind(this);
         this.reStart = this.reStart.bind(this);
-        this.runInFireFlyMode = this.runInFireFlyMode.bind(this);
-        this.runInFoolMode = this.runInFoolMode.bind(this);
+        this.reset = this.reset.bind(this);
         this.startGame = this.startGame.bind(this);
+        this.getUserName = this.getUserName.bind(this);
+        this.backToWelcome = this.backToWelcome.bind(this);
+
+        
 
         //Initiate the state
         this.state={
@@ -104,30 +107,52 @@ export default class GameBoard extends Component{
 
     }
 
+    getUserName(name){
+        //Default to the normal name
+        let returnValue = name;
+
+        let nameToCheck = name.replace(/ /g,'').toLowerCase();
+        
+        if (nameToCheck === "afool") {
+            returnValue = "Fool";                   
+        }
+
+        return returnValue;
+    }
+
 
     render(){
+
+        var btnText = 'Reset';
+        if (this.state.numberOfMatches === this.state.cards.length / 2) {
+          btnText = 'You Win! Play Again?';
+        }
+
     if (this.state.user === null) {
         return <WelcomeScreen startGame={this.startGame} />
         
     } else {
         return (
             <div>
-                <h1>{this.state.mode} Memory </h1>
-                <h3>Number of matches: {this.state.numberOfMatches}</h3> <button onClick={this.runInFireFlyMode}>Re-start in Firefly mode</button>
-                <button onClick={this.runInFoolMode}>Re-start in Foolfly mode</button>
+                <h1>Hello {this.getUserName(this.state.user)} have fun with {this.state.mode} Memory </h1>
+                <h3>Number of matches: {this.state.numberOfMatches}</h3>                
                 <div className="gameboard-container">
                     {
                         this.state.cards.map((card, index)=>{
                             return <Card key={index} id={index} isFlipped={card.isFlipped} card={card} selectCard={this.selectCard} />
                         })
-                    }
-                    
+                    }                    
                 </div>
+                <button className="restart-btn" onClick={this.reset}>{btnText}</button><button className="restart-btn" onClick={this.backToWelcome}>Back to Welcome Screen</button>
             </div>
         )
         }
     }
 
+
+    backToWelcome(){
+        window.location.reload();
+    }
 
     
     reStart(mode){
@@ -140,12 +165,8 @@ export default class GameBoard extends Component{
         })
     }
 
-    runInFireFlyMode(){       
-        this.reStart(GameModes.FIREFLY);
-    }
-
-    runInFoolMode(){       
-        this.reStart(GameModes.FOOLFLY);
+    reset(){       
+        this.reStart(this.state.mode);
     }
 
     shuffleArray(array) {

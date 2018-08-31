@@ -23,11 +23,17 @@ export default class WelcomeScreen extends Component{
         this.setState({value: event.target.value});
       }
     
-      handleSubmit(event) {
-        let mode = GameModes.FIREFLY;       
-        
+    handleSubmit(event) {               
+        //Remove white spaces and make everything to lowe case, this way it's easier to compare the value later
         let cleanInput = this.state.value.replace(/ /g,'').toLowerCase();
-               
+            //Check in input is empty and if so ignore
+            if (cleanInput.length === 0) {
+            alert("Explain yourself. Who are you? (Your name will suffice.)");
+            return;
+        }
+
+        //Set default mode
+        let mode = GameModes.FIREFLY;               
 
         if (cleanInput === "afool") {
             this.swithMode();
@@ -36,10 +42,10 @@ export default class WelcomeScreen extends Component{
 
         setTimeout(() => {
             this.props.startGame(mode, this.state.value);
-          }, 1500);   
+            }, 1500);   
 
         event.preventDefault();
-      }
+    }
 
     render(){
         return(

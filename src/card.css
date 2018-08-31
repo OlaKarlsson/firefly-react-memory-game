@@ -9,8 +9,9 @@
 } */
 
 .card-image{
-    height: 90%;
-    width: 90%;
+  height: 80%;
+  width: 80%;
+  margin-top: 10%;
 }
 
 .pointer{
@@ -21,19 +22,19 @@
 /* Based on https://codepen.io/shayhowe/pen/Fvjnf */
 
 .card-container {
-    height: 100px;
-    width: 100px;
+    height: 80%;
+    width: 70%;
     perspective: 600;
     position: relative;
     
   }
 
   .card {
-    height: 100%;
+    height: 85%;
     position: absolute;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
-    width: 100%;
+    width: 85%;
   }
 
   .flip {
@@ -52,13 +53,12 @@
   .card .back {
     background: #eaeaed;
     color: #0087cc;
-    line-height: 150px;
     text-align: center;
     transform: rotateY(180deg);
   }
 
 .matched{
-    background: #49c549;
+    background: gold;
     border-radius: 6px;
     height: 100%;
     width: 100%;

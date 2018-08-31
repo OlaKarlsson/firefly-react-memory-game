@@ -1,3 +1,11 @@
+html{
+	background-image: url('/img/parchment.jpg');
+    background-repeat: no-repeat; 
+	background-size: cover;
+	text-align: center;
+
+}
+
 .gameboard-container{
 	width: 100%;
 	display: grid;
@@ -6,4 +14,9 @@
 	align-items: center;
 	justify-items: center;
 	border: 1px solid #000;
+	text-align: center;
+}
+
+.restart-btn{
+	display: inline;
 }
