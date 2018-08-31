@@ -4,21 +4,17 @@ import Card from './card';
 import fireflies from './firefly_characters.json';
 import fools from './foolfly_characters.json';
 
-const GameModes = {FIREFLY:"Firefly Mode",FOOLFLY:"Foolfly Mode"}
+const GameModes = {FIREFLY:"Firefly",FOOLFLY:"Foolfly"}
 
 export default class GameBoard extends Component{
     
     constructor(props){
         super(props);
-        
 
         this.selectCard = this.selectCard.bind(this);
         this.reStart = this.reStart.bind(this);
         this.reStartInFireFlyMode = this.reStartInFireFlyMode.bind(this);
         this.reStartInFoolMode = this.reStartInFoolMode.bind(this);
-
-
-        
 
         //Initiate the state
         this.state={
@@ -92,15 +88,13 @@ export default class GameBoard extends Component{
             }
             
         }
-
-
-        
     }
 
     render(){
         return (
             <div>
-                <span>Number of matches: {this.state.numberOfMatches}</span> <button onClick={this.reStartInFireFlyMode}>Re-start in Firefly mode</button>
+                <h1>{this.state.mode} Memory </h1>
+                <h3>Number of matches: {this.state.numberOfMatches}</h3> <button onClick={this.reStartInFireFlyMode}>Re-start in Firefly mode</button>
                 <button onClick={this.reStartInFoolMode}>Re-start in Foolfly mode</button>
                 <div className="gameboard-container">
                     {
