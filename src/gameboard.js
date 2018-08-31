@@ -70,7 +70,8 @@ export default class GameBoard extends Component{
                 //Delay for 1 second, then mark the cards as matched
                 setTimeout(() => {
                     selectedCard.isMatched = true;
-                    this.state.lastCardSelected.isMatched = true;
+                    let lastCardSelected = this.state.lastCardSelected;
+                    lastCardSelected.isMatched = true;
                     let numberOfMatches = this.state.numberOfMatches;
                     console.log(this.state.numberOfMatches);
 
@@ -84,7 +85,8 @@ export default class GameBoard extends Component{
                 //Delay for 1 second, then flip back the cards
                 setTimeout(() => {
                     selectedCard.isFlipped = false; 
-                    this.state.lastCardSelected.isFlipped = false;
+                    let lastCardSelected = this.state.lastCardSelected;
+                    lastCardSelected.isFlipped = false;
                     this.setState({cards, lastCardSelected: null, gameLocked: false});
                   }, 1000); 
                 
