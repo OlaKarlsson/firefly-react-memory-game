@@ -3,6 +3,7 @@ import './gameboard.css';
 import Card from './card';
 import fireflies from './firefly_characters.json';
 import fools from './foolfly_characters.json';
+import WelcomeScreen from './welcomeScreen';
 
 const GameModes = {FIREFLY:"Firefly",FOOLFLY:"Foolfly"}
 
@@ -13,8 +14,9 @@ export default class GameBoard extends Component{
 
         this.selectCard = this.selectCard.bind(this);
         this.reStart = this.reStart.bind(this);
-        this.reStartInFireFlyMode = this.reStartInFireFlyMode.bind(this);
-        this.reStartInFoolMode = this.reStartInFoolMode.bind(this);
+        this.runInFireFlyMode = this.runInFireFlyMode.bind(this);
+        this.runInFoolMode = this.runInFoolMode.bind(this);
+        this.startGame = this.startGame.bind(this);
 
         //Initiate the state
         this.state={
@@ -22,7 +24,8 @@ export default class GameBoard extends Component{
             gameLocked: false,
             lastCardSelected: null,
             numberOfMatches: 0,
-            mode: GameModes.FIREFLY
+            mode: GameModes.FIREFLY,
+            user: null
         }
     }
 
@@ -90,12 +93,26 @@ export default class GameBoard extends Component{
         }
     }
 
+    startGame(mode, user){
+        this.setState({user: user});
+
+        this.reStart(mode);
+
+
+
+    }
+
+
     render(){
+    if (this.state.user === null) {
+        return <WelcomeScreen startGame={this.startGame} />
+        
+    } else {
         return (
             <div>
                 <h1>{this.state.mode} Memory </h1>
-                <h3>Number of matches: {this.state.numberOfMatches}</h3> <button onClick={this.reStartInFireFlyMode}>Re-start in Firefly mode</button>
-                <button onClick={this.reStartInFoolMode}>Re-start in Foolfly mode</button>
+                <h3>Number of matches: {this.state.numberOfMatches}</h3> <button onClick={this.runInFireFlyMode}>Re-start in Firefly mode</button>
+                <button onClick={this.runInFoolMode}>Re-start in Foolfly mode</button>
                 <div className="gameboard-container">
                     {
                         this.state.cards.map((card, index)=>{
@@ -106,6 +123,7 @@ export default class GameBoard extends Component{
                 </div>
             </div>
         )
+        }
     }
 
 
@@ -120,11 +138,11 @@ export default class GameBoard extends Component{
         })
     }
 
-    reStartInFireFlyMode(){       
+    runInFireFlyMode(){       
         this.reStart(GameModes.FIREFLY);
     }
 
-    reStartInFoolMode(){       
+    runInFoolMode(){       
         this.reStart(GameModes.FOOLFLY);
     }
 
