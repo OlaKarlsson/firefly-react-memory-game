@@ -34,7 +34,7 @@ export default class Card extends Component{
                                 <img src={"./img/question-mark.jpg"} alt="Question mark" className={'card-image'} /> 
                             </div>
                             <div className="side back">
-                                <img src={"./img/" + this.props.card.image} alt={this.props.card.name} className={'card-image'} />
+                                <img src={"./img/" + this.props.card.image} className={'card-image'} />
                             </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default class Card extends Component{
                 //If it's marked as matched, then just show the image
                 <div className="card-container">
                     <div className="matched">
-                        <img src={"./img/" + this.props.card.image} alt={this.props.card.name} className={'card-image'} />
+                        <img src={"./img/" + this.props.card.image} className={'card-image'} />
                     </div>
                 </div>
             )
