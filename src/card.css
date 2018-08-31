@@ -1,3 +1,66 @@
-.test{
-    color: brown;
+/* .card{
+    width: 100px;
+    height: 100px;
+    background-color: azure;
+    border: 1px solid #000;
+    margin: 1px;
+    line-height: 50px;
+    text-align: center;
+} */
+
+.card-image{
+    height: 90%;
+    width: 90%;
 }
+
+.pointer{
+    cursor: pointer;
+}
+
+
+/* Based on https://codepen.io/shayhowe/pen/Fvjnf */
+
+.card-container {
+    height: 100px;
+    width: 100px;
+    perspective: 600;
+    position: relative;
+    
+  }
+
+  .card {
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+  }
+
+  .flip {
+    transform: rotateY(180deg);
+  }
+  
+  .card .side {
+    background: #eaeaed;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+  }
+  .card .back {
+    background: #eaeaed;
+    color: #0087cc;
+    line-height: 150px;
+    text-align: center;
+    transform: rotateY(180deg);
+  }
+
+.matched{
+    background: #49c549;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+
+  }
