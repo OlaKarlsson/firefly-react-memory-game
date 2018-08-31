@@ -1,45 +1,41 @@
 import React, { Component } from 'react';
 import './gameboard.css';
 import Card from './card';
-import fireflies from './firefly_characters.json';
-import fools from './foolfly_characters.json';
 
-const GameModes = {FIREFLY:"Firefly Mode",FOOLFLY:"Foolfly Mode"}
+
+// const GameModes = {FIREFLY:"Firefly Mode",FOOLFLY:"Foolfly Mode"}
 
 export default class GameBoard extends Component{
     
     constructor(props){
-        super(props);
-        
+        super(props);        
 
         this.selectCard = this.selectCard.bind(this);
         this.reStart = this.reStart.bind(this);
-        this.reStartInFireFlyMode = this.reStartInFireFlyMode.bind(this);
-        this.reStartInFoolMode = this.reStartInFoolMode.bind(this);
-
-
-        
 
         //Initiate the state
         this.state={
             cards:[],
             gameLocked: false,
             lastCardSelected: null,
-            numberOfMatches: 0,
-            mode: GameModes.FIREFLY
+            numberOfMatches: 0
         }
+
+        console.log("Gameboard Constructor");
+        
     }
 
     componentDidMount(){
-        //We cant set the data in the constructor, so we set it once the component has mounted (loaded)    
+        //We cant set the data in the constructor, so we set it once the component has mounted (loaded)  
+        //Load initial data 
         this.setState({
-            cards: this.getData(this.state.mode)
+            cards: this.createCardItems(this.props.data)
         })
-        console.log("componentDidMount - loaded data");
-        console.log(this.state.cards);
-        
-        
-
+        console.log("Gameboard componentDidMount")
+        console.log("In data:");
+        console.log(this.props.data);
+        console.log("setting data");
+        console.log(this.createCardItems(this.props.data));
     }
 
     selectCard(id){
@@ -71,7 +67,8 @@ export default class GameBoard extends Component{
                 //Delay for 1 second, then mark the cards as matched
                 setTimeout(() => {
                     selectedCard.isMatched = true;
-                    this.state.lastCardSelected.isMatched = true;
+                    let lastCardSelected = this.state.lastCardSelected;
+                    lastCardSelected.isMatched = true;
                     let numberOfMatches = this.state.numberOfMatches;
                     console.log(this.state.numberOfMatches);
 
@@ -85,7 +82,8 @@ export default class GameBoard extends Component{
                 //Delay for 1 second, then flip back the cards
                 setTimeout(() => {
                     selectedCard.isFlipped = false; 
-                    this.state.lastCardSelected.isFlipped = false;
+                    let lastCardSelected = this.state.lastCardSelected;
+                    lastCardSelected.isFlipped = false;
                     this.setState({cards, lastCardSelected: null, gameLocked: false});
                   }, 1000); 
                 
@@ -98,10 +96,12 @@ export default class GameBoard extends Component{
     }
 
     render(){
+        this.setState({cards: this.createCardItems(this.props.data)});
+        console.log("Gameboard Render")
+        console.log(this.state.cards);
         return (
             <div>
-                <span>Number of matches: {this.state.numberOfMatches}</span> <button onClick={this.reStartInFireFlyMode}>Re-start in Firefly mode</button>
-                <button onClick={this.reStartInFoolMode}>Re-start in Foolfly mode</button>
+                <span>Number of matches: {this.state.numberOfMatches}</span>
                 <div className="gameboard-container">
                     {
                         this.state.cards.map((card, index)=>{
@@ -122,17 +122,10 @@ export default class GameBoard extends Component{
             lastCardSelected: null,
             numberOfMatches: 0,
             mode: mode,
-            cards:this.getData(mode)
+            cards:this.createCardItems(mode)
         })
     }
 
-    reStartInFireFlyMode(){       
-        this.reStart(GameModes.FIREFLY);
-    }
-
-    reStartInFoolMode(){       
-        this.reStart(GameModes.FOOLFLY);
-    }
 
     shuffleArray(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -153,21 +146,16 @@ export default class GameBoard extends Component{
         return array;
       }
 
-      getData(mode) {
+      createCardItems(data) {
 
-        let items= [];
-    
-        if (mode === GameModes.FIREFLY) {   
-            console.log("get firefly data");     
-            items = fireflies;        
-        } else {
-            console.log("get foolfly data");      
-            items = fools;
-        }
+        console.log("In createCardItems");
+        console.log(data);
+        
+        
         
         let itemList = [];
     
-        items.forEach(element => {
+        data.forEach(element => {
             let newItem = {};
             newItem.characterID = element.characterID;
             newItem.image = element.image;
@@ -183,11 +171,7 @@ export default class GameBoard extends Component{
             itemList.push(mirrorItem);
         });
     
-    
-        items = this.shuffleArray(itemList)
-
-        
-        console.log(items);
+        let items = this.shuffleArray(itemList)
     
         return items;       
     }

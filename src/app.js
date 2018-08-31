@@ -1,45 +1,35 @@
 import React, { Component } from 'react';
 import GameBoard from './gameboard';
-// import fireflies from './firefly_characters.json';
-// import fools from './foolfly_characters.json';
-
-// const GameModes = {FIREFLY:"Firefly Mode",FOOLFLY:"Foolfly Mode"}
+import fireflies from './firefly_characters.json';
+import fools from './foolfly_characters.json';
 
 
 export default class App extends Component{
-    
-    // constructor(props){
-    //     super(props);
+    constructor(props){
+        super(props);
         
 
     //     this.selectCard = this.selectCard.bind(this);
     //     this.reStart = this.reStart.bind(this);
-    //     this.reStartInFireFlyMode = this.reStartInFireFlyMode.bind(this);
-    //     this.reStartInFoolMode = this.reStartInFoolMode.bind(this);
+        this.reStartInFireFlyMode = this.reStartInFireFlyMode.bind(this);
+        this.reStartInFoolMode = this.reStartInFoolMode.bind(this);
 
 
-        
+        //Initiate the state
+        this.state={
+            data:fireflies
+        }
 
-    //     //Initiate the state
-    //     this.state={
-    //         cards:[],
-    //         gameLocked: false,
-    //         lastCardSelected: null,
-    //         numberOfMatches: 0,
-    //         mode: GameModes.FIREFLY
-    //     }
-    // }
+        console.log("App Constructor");
+     }
 
     // componentDidMount(){
     //     //We cant set the data in the constructor, so we set it once the component has mounted (loaded)    
     //     this.setState({
-    //         cards: this.getData(this.state.mode)
+    //         data: fireflies
     //     })
     //     console.log("componentDidMount - loaded data");
-    //     console.log(this.state.cards);
-        
-        
-
+    //     console.log(this.state.data);
     // }
 
     // selectCard(id){
@@ -100,6 +90,10 @@ export default class App extends Component{
     // }
 
     render(){
+        console.log("App Render")
+        console.log(this.state.data);
+        
+
 
         // let btnText = 'Re-start';
         // if (this.state.numberOfMatches === this.state.cards.length / 2) {
@@ -108,11 +102,11 @@ export default class App extends Component{
 
         return (
             <div>
-                {/* <h1>Find pairs - {this.state.mode}</h1>
+                <h1>Find pairs</h1>
                 <span>Number of matches: {this.state.numberOfMatches}</span> <button onClick={this.reStartInFireFlyMode}>Re-start in Firefly mode</button>
-                <button onClick={this.reStartInFoolMode}>Re-start in Foolfly mode</button> */}
+                <button onClick={this.reStartInFoolMode}>Re-start in Foolfly mode</button>
                 {/* <GameBoard cards={this.state.cards} selectCard={this.selectCard} /> */}
-                <GameBoard />
+                <GameBoard data={this.state.data} />
             </div>
             )
     }
@@ -127,13 +121,13 @@ export default class App extends Component{
     //     })
     // }
 
-    // reStartInFireFlyMode(){       
-    //     this.reStart(GameModes.FIREFLY);
-    // }
+    reStartInFireFlyMode(){
+        this.setState({data: fireflies});        
+    }
 
-    // reStartInFoolMode(){       
-    //     this.reStart(GameModes.FOOLFLY);
-    // }
+    reStartInFoolMode(){
+        this.setState({data: fools});        
+    }
 
     // shuffleArray(array) {
     //     var currentIndex = array.length, temporaryValue, randomIndex;
