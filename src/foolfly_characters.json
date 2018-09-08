@@ -2,17 +2,17 @@
   {
     "characterID": 0,
     "name": "Skulls and Spade",
-    "image": "skull-and-spade.PNG"
+    "image": "skull-spade.png"
   },
   {
     "characterID": 1,
     "name": "Bear-and Antler",
-    "image": "bear-and-antler.PNG"
+    "image": "bear-antler.png"
   },
   {
     "characterID": 2,
     "name": "Als Hack Shack",
-    "image": "als-hack-shack.PNG"
+    "image": "al-hack-shack.png"
   },
   {
     "characterID": 3,
@@ -22,16 +22,16 @@
   {
     "characterID": 4,
     "name": "Crafts with Ellen",
-    "image": "crafts-with-ellen.PNG"
+    "image": "crafts-w-ellen.png"
   },
   {
     "characterID": 5,
     "name": "Moonshine Metalworks",
-    "image": "moonshine-metalworks.PNG"
+    "image": "moonshine-metalwork.png"
   },
   {
     "characterID": 6,
     "name": "The Red Smith",
-    "image": "the-redsmith.PNG"
+    "image": "redsmith.png"
   }
 ]
