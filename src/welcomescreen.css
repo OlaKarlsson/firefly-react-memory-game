@@ -1,12 +1,49 @@
 
 .welcome-container{
     color: #fff;
-    width: 100%;
+    width: 80%;
     height: 100%;
     text-align: center;
     z-index: 2;
-    
+    background:rgba(142, 58, 18, 0.84);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    min-height: 500px;
+    padding-top: 20px;
+    border-radius: 20px;
+    transition: opacity 1.5s ease-in-out;
 }
+
+.welcome-container h1{
+    font-size: 3.5em;
+}
+
+.welcome-container label{
+    font-size: 2em;
+}
+
+.welcome-container input[type=text]{
+    margin-top: 14px;
+}
+
+.welcome-container input[type=submit]{
+    margin-top: 14px;
+    cursor: pointer;
+}
+
+button, input {
+    border: 1px rgb(189, 112, 10) solid;
+    border-radius: 2px;
+    font-family : inherit;
+    font-size   : 100%;
+    box-sizing: border-box;
+    background-color: rgba(179, 104, 12, 0.61);;
+    color: white;
+    vertical-align:2px;
+    text-align: center;
+  }
+
 
 #bg {
     position: fixed; 

@@ -31,7 +31,7 @@ export default class Card extends Component{
                 <div className="card-container" onClick={this.handleClick}>
                     <div className={className}>
                             <div className="side">
-                                <img src={"./img/question-mark.jpg"} alt="Question mark" className={'card-image'} /> 
+                                <img src={"./img/question-mark.png"} alt="Question mark" className={'card-image'} /> 
                             </div>
                             <div className="side back">
                                 <img src={"./img/" + this.props.card.image} alt={this.props.card.name} className={'card-image'} />

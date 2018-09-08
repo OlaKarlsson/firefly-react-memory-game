@@ -134,8 +134,10 @@ export default class GameBoard extends Component{
     } else {
         return (
             <div>
-                <h1>Hello {this.getUserName(this.state.user)} have fun with {this.state.mode} Memory </h1>
-                <h3>Number of matches: {this.state.numberOfMatches}</h3>                
+                <div className="gameboard-text-container">
+                    <h1>Hello {this.getUserName(this.state.user)} have fun with {this.state.mode} Memory </h1>
+                    <h3>Number of matches: {this.state.numberOfMatches}</h3>
+                </div>           
                 <div className="gameboard-container">
                     {
                         this.state.cards.map((card, index)=>{

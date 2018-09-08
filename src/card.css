@@ -9,9 +9,9 @@
 } */
 
 .card-image{
-  height: 80%;
-  width: 80%;
-  margin-top: 10%;
+  max-width: 100%;
+  margin-top: 5%;
+  max-height: 87%
 }
 
 .pointer{
@@ -23,18 +23,22 @@
 
 .card-container {
     height: 80%;
-    width: 70%;
+    width: 60%;
     perspective: 600;
     position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
   }
 
   .card {
-    height: 85%;
+    height: 100%;
     position: absolute;
     transform-style: preserve-3d;
     transition: all 0.5s ease-in-out;
-    width: 85%;
+    width: 100%;
   }
 
   .flip {
@@ -58,7 +62,7 @@
   }
 
 .matched{
-    background: gold;
+    background:  rgba(179, 104, 12, 0.61);;
     border-radius: 6px;
     height: 100%;
     width: 100%;

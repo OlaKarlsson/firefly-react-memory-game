@@ -23,7 +23,9 @@ export default class WelcomeScreen extends Component{
         this.setState({value: event.target.value});
       }
     
-    handleSubmit(event) {               
+    handleSubmit(event) {
+        let welcomeContainer = document.querySelector('.welcome-container') // Using a class instead, see note below.
+        welcomeContainer.classList.add('transparent');              
         //Remove white spaces and make everything to lowe case, this way it's easier to compare the value later
         let cleanInput = this.state.value.replace(/ /g,'').toLowerCase();
             //Check in input is empty and if so ignore
@@ -42,7 +44,7 @@ export default class WelcomeScreen extends Component{
 
         setTimeout(() => {
             this.props.startGame(mode, this.state.value);
-            }, 1500);   
+            }, 2000);   
 
         event.preventDefault();
     }
@@ -60,9 +62,9 @@ export default class WelcomeScreen extends Component{
                     <h1>Welcome!</h1>
                     <form onSubmit={this.handleSubmit}>
                         <label>
-                        To start with. tell us, who are you?<br/><br/>
+                        To start with. tell us, who are you?<br/>
                         <input type="text" value={this.state.value} onChange={this.handleChange} />
-                        </label>
+                        </label><br/>
                         <input type="submit" value="Submit" />
                     </form>
             </div> 
