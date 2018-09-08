@@ -53,7 +53,7 @@ export default class WelcomeScreen extends Component{
         return(
             <div>
                 <div id="bg">
-                <img className="foolfly" src="./img/foolfly-bg.PNG" alt="" />
+                <img className="foolfly" src="./img/foolfly.png" alt="" />
                 <img className="firefly" src="./img/firefly.png" alt="" />
                     
                 </div>
